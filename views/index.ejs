@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>اشکان بوکمارک منیجر</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <h1><a href="/">اشکان بوکمارک منیجر</a></h1>
+        </div>
+
+        <div class="row d-print-none">
+            <div class="content-card">
+
+                <h2>افزودن بوکمارک</h2>
+
+                <form action="/" method="POST">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" class="form-control" name="theurl" placeholder="آدرس وبسایت" required>
+                        </div>
+                        <div style="margin-top: 8px;" class="col-3">
+                            <input type="radio" id="normal" name="quality" value="normal" checked>
+                            <label for="normal">معمولی</label>
+                            <input style="margin-right: 8px;" type="radio" id="plus" name="quality" value="plus">
+                            <label for="plus">پلاس</label>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-primary" type="submit" name="submit">افزودن</button>
+                        </div>
+                    </div>
+                </form>
+
+                <% if(hasMessage){ %>
+
+                    <% if(messageSuccess){ %>
+                        <div class="msg-success"><%= messageContent %></div>
+                    <% }else{ %>
+                        <div class="msg-warning"><%= messageContent %></div>
+                    <% } %>
+                
+                <% } %>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="content-card">
+                <div class="row">
+
+                    <div class="col-6">
+
+                        <h2>بوکمارک‌های معمولی</h2>
+
+                        <table class="table">
+
+                            <thead>
+                                <tr class="table-header">
+                                    <th scope="col">ردیف</th>
+                                    <th class="url-column" scope="col">لینک</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% for(let i=0; i<urlsNormal.length; i++){ %>
+                                    <tr>
+                                        <td><%= i+1 %></td>
+                                        <td class="url-column"><a href="/redirect?url=<%= urlsNormal[i].bookmark_url %>" target="_blank"><%= urlsNormal[i].bookmark_url %></a></td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <h2>بوکمارک‌های پلاس</h2>
+
+                        <table class="table">
+
+                            <thead>
+                                <tr class="table-header">
+                                    <th scope="col">ردیف</th>
+                                    <th class="url-column" scope="col">لینک</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% for(let i=0; i<urlsPlus.length; i++){ %>
+                                    <tr>
+                                        <td><%= i+1 %></td>
+                                        <td class="url-column"><a href="/redirect?url=<%= urlsPlus[i].bookmark_url %>" target="_blank"><%= urlsPlus[i].bookmark_url %></a></td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

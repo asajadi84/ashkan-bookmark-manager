@@ -1,0 +1,87 @@
+@font-face {
+    font-family: Dana;
+    font-style: normal;
+    src: url('../fonts/dana-regular.eot');
+    src: url('../fonts/dana-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-8 */
+        url('../fonts/dana-regular.woff2') format('woff2'),
+        /* FF39+, Chrome36+, Opera24+*/
+        url('../fonts/dana-regular.woff') format('woff')
+}
+
+@font-face {
+    font-family: DanaBold;
+    font-style: normal;
+    src: url('../fonts/dana-bold.eot');
+    src: url('../fonts/dana-bold.eot?#iefix') format('embedded-opentype'),
+        /* IE6-8 */
+        url('../fonts/dana-bold.woff2') format('woff2'),
+        /* FF39+, Chrome36+, Opera24+*/
+        url('../fonts/dana-bold.woff') format('woff')
+}
+
+body {
+    background-color: #f1f5f9;
+    font-family: Dana;
+}
+
+h1 {
+    color: #2b79c1;
+    font-family: DanaBold;
+    padding-top: 40px;
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 2px solid #2b79c1;
+    color: #64748b;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+a {
+    color: #2b79c1;
+    text-decoration: none;
+}
+
+.content-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    margin-top: 32px;
+    padding: 32px;
+}
+
+.msg-warning {
+    background-color: #ffc107;
+    border-radius: 4px;
+    margin-top: 16px;
+    padding: 8px;
+}
+
+.msg-success {
+    background-color: #198754;
+    border-radius: 4px;
+    color: #ffffff;
+    margin-top: 16px;
+    padding: 8px;
+}
+
+table th:first-child {
+    border-radius: 0 8px 8px 0;
+    padding-right: 8px;
+}
+
+table th:last-child {
+    border-radius: 8px 0 0 8px;
+    padding-left: 8px;
+}
+
+.table-header {
+    background-color: #2b79c1;
+    color: #ffffff;
+}
+
+.url-column {
+    text-align: left;
+}
