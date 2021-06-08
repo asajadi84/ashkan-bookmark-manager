@@ -15,6 +15,7 @@
 
         <div class="row">
             <h1><a href="/">اشکان بوکمارک منیجر</a></h1>
+            <h2><%= formattedTime %></h2>
         </div>
 
         <div class="row d-print-none">
@@ -65,16 +66,26 @@
                             <thead>
                                 <tr class="table-header">
                                     <th scope="col">ردیف</th>
+									  <th scope="col" class="d-print-none">مدیریت</th>
                                     <th class="url-column" scope="col">لینک</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <% for(let i=0; i<urlsNormal.length; i++){ %>
-                                    <tr>
-                                        <td><%= i+1 %></td>
-                                        <td class="url-column"><a href="/redirect?url=<%= urlsNormal[i].bookmark_url %>" target="_blank"><%= urlsNormal[i].bookmark_url %></a></td>
-                                    </tr>
+                                    <% if(urlsNormal[i].bookmark_id + 30000 > timeNow){ %>
+                                        <tr class="table-warning">
+                                            <td><%= i+1 %></td>
+											<td class="d-print-none"><a href="/delete/<%= urlsNormal[i].bookmark_url %>" class="btn btn-sm btn-outline-primary">حذف</a></td>
+                                            <td class="url-column"><a href="/redirect?url=<%= urlsNormal[i].bookmark_url %>" target="_blank"><%= urlsNormal[i].bookmark_url %></a></td>
+                                        </tr>
+                                    <% }else{ %>
+                                        <tr>
+                                            <td><%= i+1 %></td>
+											<td class="d-print-none"><a href="/delete/<%= urlsNormal[i].bookmark_url %>" class="btn btn-sm btn-outline-primary">حذف</a></td>
+                                            <td class="url-column"><a href="/redirect?url=<%= urlsNormal[i].bookmark_url %>" target="_blank"><%= urlsNormal[i].bookmark_url %></a></td>
+                                        </tr>
+                                    <% } %>
                                 <% } %>
                             </tbody>
 
@@ -91,16 +102,26 @@
                             <thead>
                                 <tr class="table-header">
                                     <th scope="col">ردیف</th>
+									 <th scope="col" class="d-print-none">مدیریت</th>
                                     <th class="url-column" scope="col">لینک</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <% for(let i=0; i<urlsPlus.length; i++){ %>
-                                    <tr>
-                                        <td><%= i+1 %></td>
-                                        <td class="url-column"><a href="/redirect?url=<%= urlsPlus[i].bookmark_url %>" target="_blank"><%= urlsPlus[i].bookmark_url %></a></td>
-                                    </tr>
+                                    <% if(urlsPlus[i].bookmark_id + 30000 > timeNow){ %>
+                                        <tr class="table-warning">
+                                            <td><%= i+1 %></td>
+											<td class="d-print-none"><a href="/delete/<%= urlsPlus[i].bookmark_url %>" class="btn btn-sm btn-outline-primary">حذف</a></td>
+                                            <td class="url-column"><a href="/redirect?url=<%= urlsPlus[i].bookmark_url %>" target="_blank"><%= urlsPlus[i].bookmark_url %></a></td>
+                                        </tr>
+                                    <% }else{ %>
+                                        <tr>
+                                            <td><%= i+1 %></td>
+											<td class="d-print-none"><a href="/delete/<%= urlsPlus[i].bookmark_url %>" class="btn btn-sm btn-outline-primary">حذف</a></td>
+                                            <td class="url-column"><a href="/redirect?url=<%= urlsPlus[i].bookmark_url %>" target="_blank"><%= urlsPlus[i].bookmark_url %></a></td>
+                                        </tr>
+                                    <% } %>
                                 <% } %>
                             </tbody>
 
